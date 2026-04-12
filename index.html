@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Дина и Евгений — 10 лет спустя</title>
+<meta name="description" content="Приглашение на празднование 10-летней годовщины свадьбы Дины и Евгения на озере Гарда, Италия. Сентябрь 2026.">
+<meta property="og:title" content="Дина и Евгений — 10 лет спустя">
+<meta property="og:description" content="Приглашение на празднование 10-летней годовщины свадьбы на озере Гарда, Италия">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #FFFFFF;
+  --off-white: #FAFAF7;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --accent: #4A5D4A;
+  --accent-light: #7A8E7A;
+  --gold: #B8A080;
+  --border: #D4D4D4;
+  --card-border: #4A5D4A;
+
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========== UTILITY ========== */
+.tracked {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  word-spacing: 0.3em;
+}
+@media (max-width: 600px) {
+  .tracked {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+.section-pad {
+  padding: clamp(50px, 7vw, 100px) clamp(20px, 5vw, 80px);
+}
+
+.narrow {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ========== GEOMETRIC DECORATIONS ========== */
+.geo-line {
+  width: 1px;
+  height: 60px;
+  background: var(--accent);
+  margin: 0 auto;
+}
+
+.geo-diamond {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.geo-dots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.geo-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ========== REVEAL ANIMATION ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ========== 1. HERO ========== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.15) 40%,
+    rgba(0,0,0,0.55) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px 0;
+  padding-bottom: clamp(20px, 3vw, 40px);
+}
+
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.hero__scroll:hover {
+  color: #fff;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: currentColor;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ========== BOTANICAL BACKGROUND ========== */
+.botanical-bg {
+  position: relative;
+  overflow: hidden;
+}
+.botanical-bg > * {
+  position: relative;
+  z-index: 1;
+}
+.floral-deco {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.22;
+}
+
+/* ========== 2. INVITATION ========== */
+.invitation {
+  background: var(--white);
+}
+
+.invitation__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.invitation__text p {
+  margin-bottom: 1.5em;
+}
+
+.invitation__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== 3. LOCATION ========== */
+.location {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.location__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.location__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.location__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 16px 0 28px;
+}
+
+.location__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.location__btn:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+}
+
+/* Airport panel */
+.airports-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.airports-panel.open {
+  display: flex;
+}
+
+.airports-panel__inner {
+  background: var(--white);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 48px;
+  position: relative;
+}
+
+.airports-panel__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.airports-panel__map {
+  width: 100%;
+  height: 340px;
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.map-marker {
+  background: none !important;
+  border: none !important;
+}
+
+.leaflet-control-zoom a {
+  font-family: var(--font-body) !important;
+}
+
+.airports-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.airport-card {
+  border: 1px solid var(--card-border);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.airport-card__code {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.airport-card__name {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.airport-card__time {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+
+.airport-card__link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  transition: opacity 0.3s;
+}
+
+.airport-card__link:hover {
+  opacity: 0.7;
+}
+
+/* ========== 4. HOTEL ========== */
+.hotel {
+  background: var(--white);
+}
+
+.hotel__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.hotel__name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin: 16px 0 8px;
+  color: var(--text-primary);
+}
+
+.hotel__stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.hotel__link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  transition: opacity 0.3s;
+}
+
+.hotel__link:hover {
+  opacity: 0.7;
+}
+
+.hotel__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-left: calc(-1 * clamp(20px, 5vw, 80px));
+  margin-right: calc(-1 * clamp(20px, 5vw, 80px));
+}
+
+.hotel__grid-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.hotel__grid-item--full {
+  grid-column: 1 / -1;
+}
+
+.hotel__grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hotel__grid-item:hover img {
+  transform: scale(1.03);
+}
+
+.hotel__grid-item--tall {
+  aspect-ratio: auto;
+}
+
+.hotel__grid-item:not(.hotel__grid-item--full) {
+  aspect-ratio: 4/3;
+}
+
+.hotel__grid-item--full {
+  aspect-ratio: 21/9;
+}
+
+/* ========== 5. PROGRAM ========== */
+.program {
+  background: var(--off-white);
+}
+
+.program__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  text-align: center;
+  margin: 16px 0 60px;
+}
+
+.program__days {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.program__day {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.program__day:last-child {
+  border-bottom: none;
+}
+
+.program__day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.program__day-date {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.program__day-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.program__day-weekday {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.program__day-theme {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.program__items {
+  list-style: none;
+  padding-left: 0;
+}
+
+.program__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0 8px 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.program__item::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.program__item-text {
+  flex: 1;
+}
+
+.program__dresscode {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
+/* ========== 6. SPORTS ========== */
+.sports {
+  background: var(--white);
+}
+
+.sports__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sports__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  margin: 16px 0 24px;
+  color: var(--text-primary);
+}
+
+.sports__logo {
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: 0 auto 12px;
+}
+
+.sports__logo-link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  transition: opacity 0.3s;
+}
+
+.sports__logo-link:hover {
+  opacity: 0.7;
+}
+
+.sports__intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.sports__list {
+  max-width: 640px;
+  margin: 0 auto 60px;
+  list-style: none;
+}
+
+.sports__list li {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  padding: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.sports__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.sports__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-left: calc(-1 * clamp(20px, 5vw, 80px));
+  margin-right: calc(-1 * clamp(20px, 5vw, 80px));
+}
+
+.sports__photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sports__photo-item {
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+
+.sports__photo-item:hover img {
+  transform: scale(1.03);
+}
+
+.sports__photo-item--wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 21/9;
+}
+
+/* ========== 7. FAQ ========== */
+.faq {
+  background: var(--white);
+}
+
+.faq__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.faq__grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0;
+}
+
+.faq__item {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.faq__q {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.faq__a {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ========== 8. THROWBACK ========== */
+.throwback {
+  background: var(--white);
+  padding: clamp(40px, 6vw, 70px) 0;
+  overflow: hidden;
+}
+
+.throwback__header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.throwback__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin: 16px 0 0;
+}
+
+.throwback__sub {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  color: var(--text-secondary);
+}
+
+/* Desktop mosaic */
+.throwback__mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 4px;
+  width: 100%;
+  max-width: 100vw;
+  aspect-ratio: 16/9;
+}
+
+.throwback__cell {
+  position: relative;
+  overflow: hidden;
+}
+
+.throwback__cell img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.throwback__cell img.fade-out {
+  opacity: 0;
+}
+
+/* Mobile scroll strip */
+.throwback__scroll {
+  display: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.throwback__scroll-track {
+  display: flex;
+  gap: 4px;
+  animation: throwback-scroll 60s linear infinite;
+  width: max-content;
+}
+
+.throwback__scroll-track img {
+  height: 220px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+@keyframes throwback-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ========== 9. RSVP ========== */
+.rsvp {
+  background: var(--off-white);
+}
+
+.rsvp__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.rsvp__subtitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.rsvp__form {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.form-row {
+  margin-bottom: 24px;
+}
+
+.form-row--half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.form-label .req {
+  color: var(--accent);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-primary);
+  background: var(--white);
+  border: 1px solid var(--border);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  border-color: var(--accent);
+}
+
+.form-input::placeholder {
+  color: #b0b0b0;
+}
+
+/* Pills */
+.form-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-pill {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--text-secondary);
+}
+
+.form-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.form-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.form-submit {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 32px;
+}
+
+.form-submit:hover {
+  background: #3d4f3d;
+}
+
+/* Thank you state */
+.rsvp__thankyou {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.rsvp__thankyou.visible {
+  display: block;
+}
+
+.rsvp__thankyou h3 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.rsvp__thankyou p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* ========== CONTACTS ========== */
+.contacts {
+  background: var(--white);
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px);
+  text-align: center;
+}
+
+.contacts__heading {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.contacts__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.contacts__tg {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+  transition: opacity 0.3s;
+}
+
+.contacts__tg:hover {
+  opacity: 0.7;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--off-white);
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: var(--accent);
+  transition: opacity 0.3s;
+}
+
+footer a:hover {
+  opacity: 0.7;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
+  }
+
+  .hero__content {
+    padding-bottom: 14vh;
+  }
+
+  .location__title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .hotel__grid {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .hotel__grid-item--full {
+    aspect-ratio: 16/9;
+  }
+
+  .hotel__grid-item:not(.hotel__grid-item--full) {
+    aspect-ratio: 16/10;
+  }
+
+  .airports-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .airports-panel__inner {
+    padding: 32px 20px;
+  }
+
+  .program__day-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .program__item {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .program__dresscode {
+    flex-basis: 100%;
+  }
+
+  .sports__photos {
+    grid-template-columns: 1fr;
+  }
+
+  .sports__photo-item {
+    aspect-ratio: 16/10;
+  }
+
+  .form-row--half {
+    grid-template-columns: 1fr;
+  }
+
+  .section-pad {
+    padding: clamp(40px, 8vw, 70px) 20px;
+  }
+
+  .throwback__mosaic {
+    display: none;
+  }
+
+  .throwback__scroll {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+  }
+
+  .form-pills {
+    flex-direction: column;
+  }
+
+  .form-pill {
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== 1. HERO ==================== -->
+<section class="hero" id="hero">
+  <img class="hero__img" src="images/hero-new.jpg" alt="Дина и Евгений на фоне виноградников и кипарисов" loading="eager" fetchpriority="high" decoding="async">
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Дина и Евгений</p>
+    <h1 class="hero__title">10 Years later</h1>
+  </div>
+  <a href="#invitation" class="hero__scroll" aria-label="Прокрутить вниз">
+    <span class="hero__scroll-line"></span>
+  </a>
+</section>
+
+<!-- ==================== 2. INVITATION ==================== -->
+<section class="invitation section-pad botanical-bg" id="invitation">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="top:-60px;left:-50px;width:300px;transform:rotate(-10deg)">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="bottom:-80px;right:-40px;width:340px;transform:rotate(175deg) scaleX(-1);opacity:0.05">
+  <div class="narrow text-center">
+    <div style="margin-bottom: 40px;"></div>
+    <div class="invitation__text reveal reveal-delay-2">
+      <p>Дорогие и любимые! Без вас эти 10 лет не были бы такими насыщенными и прекрасными! Вы были рядом с нами дома, в путешествиях, на праздниках, на великах, лыжах, хайках, восхождениях и в прочих авантюрах. Вы всегда поддерживали нас своим теплом и энергией. Мы хотим разделить с вами этот праздник движения, красоты и любови к жизни, которые как нигде можно ощутить именно в Италии!</p>
+      <p>Нас ждет 2 дня в формате спорт-кэмпа: живописные маршруты, остановки в локальных кафе, возможность попробовать горные и шоссейные велосипеды (все электро – не хочешь – не крути), зарядки, заминки и другое! А в конце – заслуженный праздник, музыка и танцы насколько хватит сил (не зря же вся спорт подготовка =)</p>
+      <p>Все детали и небольшой throw back ниже!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 3. LOCATION ==================== -->
+<section class="location" id="location">
+  <img class="location__img" src="images/cycling-scenic.jpg" alt="Живописная велодорожка над озером Гарда" loading="lazy">
+  <div class="location__overlay"></div>
+  <div class="location__content">
+    <span class="tracked" style="color: rgba(255,255,255,0.85);">М Е С Т О</span>
+    <h2 class="location__title">Lago di Garda</h2>
+    <div class="geo-line" style="background: rgba(255,255,255,0.5); margin-bottom: 32px;"></div>
+    <button class="location__btn" id="airportsBtn">Ближайшие аэропорты</button>
+  </div>
+</section>
+
+<!-- Airport Panel Modal -->
+<div class="airports-panel" id="airportsPanel">
+  <div class="airports-panel__inner">
+    <button class="airports-panel__close" id="airportsClose" aria-label="Закрыть">&times;</button>
+    <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; text-align: center;">Как добраться</h3>
+    <div id="mapContainer" class="airports-panel__map"></div>
+    <div class="airports-grid">
+      <a href="https://www.google.com/maps/dir/Verona+Airport/Grand+Hotel+Fasano" target="_blank" rel="noopener noreferrer" class="airport-card">
+        <div class="airport-card__code">VRN</div>
+        <div class="airport-card__name">Верона</div>
+        <div class="airport-card__time">~30 мин</div>
+        <span class="airport-card__link">Маршрут →</span>
+      </a>
+      <a href="https://www.google.com/maps/dir/Bergamo+Airport/Grand+Hotel+Fasano" target="_blank" rel="noopener noreferrer" class="airport-card">
+        <div class="airport-card__code">BGY</div>
+        <div class="airport-card__name">Бергамо</div>
+        <div class="airport-card__time">~1.5 ч</div>
+        <span class="airport-card__link">Маршрут →</span>
+      </a>
+      <a href="https://www.google.com/maps/dir/Milan+Malpensa+Airport/Grand+Hotel+Fasano" target="_blank" rel="noopener noreferrer" class="airport-card">
+        <div class="airport-card__code">MXP</div>
+        <div class="airport-card__name">Милан Мальпенса</div>
+        <div class="airport-card__time">~2 ч</div>
+        <span class="airport-card__link">Маршрут →</span>
+      </a>
+      <a href="https://www.google.com/maps/dir/Venice+Marco+Polo+Airport/Grand+Hotel+Fasano" target="_blank" rel="noopener noreferrer" class="airport-card">
+        <div class="airport-card__code">VCE</div>
+        <div class="airport-card__name">Венеция</div>
+        <div class="airport-card__time">~2 ч</div>
+        <span class="airport-card__link">Маршрут →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 4. HOTEL ==================== -->
+<section class="hotel section-pad botanical-bg" id="hotel">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="top:-40px;right:-30px;width:280px;transform:rotate(20deg) scaleX(-1)">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="bottom:-60px;left:-60px;width:250px;transform:rotate(-170deg);opacity:0.05">
+  <div class="hotel__header reveal">
+    <span class="tracked">О Т Е Л Ь</span>
+    <h2 class="hotel__name">Hotel Grand Fasano</h2>
+    <div class="hotel__stars">★★★★★</div>
+    <a href="https://www.ghf.it/en/" target="_blank" rel="noopener noreferrer" class="hotel__link">ghf.it</a>
+  </div>
+
+  <div class="hotel__grid reveal reveal-delay-1">
+    <div class="hotel__grid-item hotel__grid-item--full">
+      <img src="images/hotel-1.jpg" alt="Grand Hotel Fasano — вид с озера" loading="lazy" style="object-position: center 75%;">
+    </div>
+    <div class="hotel__grid-item">
+      <img src="images/hotel-extra-1.jpg" alt="Фасад отеля Grand Fasano" loading="lazy">
+    </div>
+    <div class="hotel__grid-item">
+      <img src="images/hotel-extra-2.jpg" alt="Сад отеля Grand Fasano" loading="lazy">
+    </div>
+    <div class="hotel__grid-item">
+      <img src="images/hotel-2.webp" alt="Интерьер отеля" loading="lazy">
+    </div>
+    <div class="hotel__grid-item">
+      <img src="images/hotel-3.webp" alt="Номер отеля" loading="lazy">
+    </div>
+    <div class="hotel__grid-item hotel__grid-item--full">
+      <img src="images/hotel-extra-3.jpg" alt="Grand Fasano — лайфстайл" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 5. PROGRAM ==================== -->
+<section class="program section-pad" id="program">
+  <div class="text-center reveal">
+    <span class="tracked">П Р О Г Р А М М А</span>
+    <h2 class="program__title">Что нас ждёт?</h2>
+  </div>
+
+  <div class="program__days">
+    <!-- Day 1 -->
+    <div class="program__day reveal">
+      <div class="program__day-header">
+        <span class="program__day-date">23.09</span>
+        <div class="program__day-info">
+          <span class="program__day-weekday">Среда</span>
+          <span class="program__day-theme">Сбор гостей</span>
+        </div>
+      </div>
+      <ul class="program__items">
+        <li class="program__item">
+          <span class="program__item-text">Ужин и презентация программы</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="program__day reveal">
+      <div class="program__day-header">
+        <span class="program__day-date">24.09</span>
+        <div class="program__day-info">
+          <span class="program__day-weekday">Четверг</span>
+          <span class="program__day-theme">Главное приключение</span>
+        </div>
+      </div>
+      <ul class="program__items">
+        <li class="program__item">
+          <span class="program__item-text">Зарядка</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Завтрак</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Выезд на целый день с обедом</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Ужин в отеле</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="program__day reveal">
+      <div class="program__day-header">
+        <span class="program__day-date">25.09</span>
+        <div class="program__day-info">
+          <span class="program__day-weekday">Пятница</span>
+          <span class="program__day-theme">Ещё одно приключение</span>
+        </div>
+      </div>
+      <ul class="program__items">
+        <li class="program__item">
+          <span class="program__item-text">Зарядка</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Завтрак</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Выезд на полдня</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Обед</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Отдых</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Welcome dinner</span>
+          <span class="program__dresscode">Smart casual</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="program__day reveal">
+      <div class="program__day-header">
+        <span class="program__day-date">26.09</span>
+        <div class="program__day-info">
+          <span class="program__day-weekday">Суббота</span>
+          <span class="program__day-theme">Party time</span>
+        </div>
+      </div>
+      <ul class="program__items">
+        <li class="program__item">
+          <span class="program__item-text">Зарядка</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Завтрак</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Хайк / Прогулка</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Обед + Отдых</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Праздничный ужин, музыка и танцы</span>
+          <span class="program__dresscode">Cocktail</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="program__day reveal">
+      <div class="program__day-header">
+        <span class="program__day-date">27.09</span>
+        <div class="program__day-info">
+          <span class="program__day-weekday">Воскресенье</span>
+          <span class="program__day-theme">Прощание</span>
+        </div>
+      </div>
+      <ul class="program__items">
+        <li class="program__item">
+          <span class="program__item-text">Зарядка для самых стойких</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Бранч</span>
+        </li>
+        <li class="program__item">
+          <span class="program__item-text">Отъезд</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="reveal" style="text-align: center; color: #999; font-size: 0.85rem; margin-top: 32px; font-style: italic;">* Программа предварительная и будет уточняться ближе к мероприятию</p>
+</section>
+
+<!-- ==================== 6. SPORTS ==================== -->
+<section class="sports section-pad botanical-bg" id="sports">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="top:-50px;left:-70px;width:260px;transform:rotate(15deg)">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="bottom:-50px;right:-50px;width:220px;transform:rotate(-160deg) scaleX(-1);opacity:0.05">
+  <div class="sports__header reveal">
+    <span class="tracked">С П О Р Т</span>
+    <h2 class="sports__title">За спорт отвечают<br>профессионалы</h2>
+    <img src="images/pro-trener-logo.png" alt="Pro-Trener Camps" class="sports__logo" loading="lazy">
+    <a href="https://camps.pro-trener.ru/" target="_blank" rel="noopener noreferrer" class="sports__logo-link">camps.pro-trener.ru</a>
+  </div>
+
+  <p class="sports__intro reveal reveal-delay-1">А это значит:</p>
+
+  <ul class="sports__list reveal reveal-delay-2">
+    <li>Нас будут сопровождать лучшие тренеры</li>
+    <li>Нас ждут продуманные маршруты для любого уровня подготовки</li>
+    <li>Прокат электро-велосипедов и всего необходимого будет организован заранее</li>
+    <li>Мы ответим на все вопросы и поможем подготовиться к поездке</li>
+  </ul>
+
+  <div class="sports__photos reveal reveal-delay-3">
+    <div class="sports__photo-item sports__photo-item--wide">
+      <img src="images/cycling-scenic.jpg" alt="Велодорожка над озером Гарда" loading="lazy">
+    </div>
+    <div class="sports__photo-item">
+      <img src="images/cycling-path.jpg" alt="Велотрасса вдоль озера" loading="lazy">
+    </div>
+    <div class="sports__photo-item">
+      <img src="images/cycling-road.jpg" alt="Дорога у озера Гарда" loading="lazy">
+    </div>
+    <div class="sports__photo-item sports__photo-item--wide">
+      <img src="images/cycling-lake.png" alt="Велодорожка на озере" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 7. FAQ ==================== -->
+<section class="faq section-pad botanical-bg" id="faq">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="top:-30px;right:-60px;width:240px;transform:rotate(-25deg)">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="bottom:-70px;left:-40px;width:300px;transform:rotate(165deg) scaleX(-1);opacity:0.05">
+  <div class="narrow">
+    <h2 class="faq__title reveal">Частые вопросы</h2>
+    <div class="faq__grid">
+      <div class="faq__item reveal">
+        <p class="faq__q">«Нет вело-подготовки?»</p>
+        <p class="faq__a">Не беда: программа адаптирована под любой уровень подготовки и нагрузки</p>
+      </div>
+      <div class="faq__item reveal reveal-delay-1">
+        <p class="faq__q">«Не хочется крутить педали?»</p>
+        <p class="faq__a">Все велосипеды электрические — не хочешь, не крути!</p>
+      </div>
+      <div class="faq__item reveal reveal-delay-2">
+        <p class="faq__q">«Очень много спорта»</p>
+        <p class="faq__a">Вы всегда можете пропустить часть спортивной программы и отдохнуть</p>
+      </div>
+      <div class="faq__item reveal reveal-delay-3">
+        <p class="faq__q">«Нам понадобится какая-то специальная экипировка?»</p>
+        <p class="faq__a">Прокат велосипедов и экипировки будет организован, а рекомендации по одежде мы вышлем заранее! Просто приезжайте</p>
+      </div>
+      <div class="faq__item reveal reveal-delay-4">
+        <p class="faq__q">«Как забронировать отель и трансфер?»</p>
+        <p class="faq__a">Просто заполните <a href="#rsvp" style="color: #4A5D4A; text-decoration: underline;">форму</a> ниже или свяжитесь с <a href="https://t.me/NargizaProTrenerCamps" target="_blank" rel="noopener noreferrer" style="color: #4A5D4A; text-decoration: underline;">менеджером</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 8. THROWBACK ==================== -->
+<section class="throwback" id="throwback">
+  <div class="throwback__header reveal">
+    <span class="tracked">К А К &nbsp; Э Т О &nbsp; Б Ы Л О</span>
+    <h2 class="throwback__title">10 лет назад</h2>
+    <p class="throwback__sub">2 0 1 6</p>
+  </div>
+
+  <!-- Desktop: mosaic grid with auto-changing photos -->
+  <div class="throwback__mosaic reveal" id="throwbackMosaic"></div>
+
+  <!-- Mobile: auto-scrolling strip -->
+  <div class="throwback__scroll" id="throwbackScroll">
+    <div class="throwback__scroll-track" id="throwbackTrack"></div>
+  </div>
+</section>
+
+<!-- ==================== 9. RSVP ==================== -->
+<section class="rsvp section-pad" id="rsvp">
+  <div class="narrow text-center">
+    <div class="reveal">
+      <div class="geo-dots" style="margin-bottom: 24px;">
+        <span></span>
+        <div class="geo-diamond"></div>
+        <span></span>
+      </div>
+    </div>
+    <h2 class="rsvp__title reveal">Просим заполнить форму ниже</h2>
+    <p class="rsvp__subtitle reveal reveal-delay-1">и мы поможем вам с бронированием</p>
+  </div>
+
+  <form class="rsvp__form reveal reveal-delay-2" id="rsvpForm">
+    <div class="form-row form-row--half">
+      <div>
+        <label class="form-label">Имя <span class="req">*</span></label>
+        <input type="text" class="form-input" placeholder="Имя" required>
+      </div>
+      <div>
+        <label class="form-label">Фамилия <span class="req">*</span></label>
+        <input type="text" class="form-input" placeholder="Фамилия" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label class="form-label">Кол-во гостей <span class="req">*</span></label>
+      <input type="number" class="form-input" min="1" max="20" placeholder="1" required style="max-width: 120px;">
+    </div>
+
+    <div class="form-row">
+      <label class="form-label">Даты <span class="req">*</span></label>
+      <div class="form-pills" data-group="dates">
+        <button type="button" class="form-pill" data-value="24-27">24–27 сентября</button>
+        <button type="button" class="form-pill" data-value="25-27">25–27 сентября</button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label class="form-label">Свяжитесь со мной для бронирования отеля, трансфера и др.</label>
+      <div class="form-pills" data-group="contact">
+        <button type="button" class="form-pill" data-value="tg">ТГ</button>
+        <button type="button" class="form-pill" data-value="wa">Вотсап</button>
+        <button type="button" class="form-pill" data-value="phone">По тел.</button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label class="form-label">Номер для связи</label>
+      <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__">
+    </div>
+
+    <button type="submit" class="form-submit">Отправить</button>
+  </form>
+
+  <div class="rsvp__thankyou" id="thankyou">
+    <h3>Спасибо!</h3>
+    <p>Мы свяжемся с вами в ближайшее время</p>
+  </div>
+</section>
+
+<!-- ==================== CONTACTS ==================== -->
+<section class="contacts botanical-bg" id="contacts">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="top:-40px;left:-30px;width:200px;transform:rotate(8deg);opacity:0.06">
+  <img class="floral-deco" src="images/deco/olive-art-1.png" style="bottom:-50px;right:-40px;width:180px;transform:rotate(-175deg) scaleX(-1);opacity:0.05">
+  <div class="reveal">
+    <p class="contacts__heading">Контакт по всем организационным вопросам:</p>
+    <p class="contacts__name">Наргиза +7 903 500 4356</p>
+    <a href="https://t.me/NargizaProTrenerCamps" target="_blank" rel="noopener noreferrer" class="contacts__tg">@NargizaProTrenerCamps</a>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <p>Дина &amp; Евгений · 2026</p>
+  <p><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a></p>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+// Scroll reveal via IntersectionObserver
+document.addEventListener('DOMContentLoaded', function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  reveals.forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Airport panel
+  var airportsBtn = document.getElementById('airportsBtn');
+  var airportsPanel = document.getElementById('airportsPanel');
+  var airportsClose = document.getElementById('airportsClose');
+
+  var mapInitialized = false;
+
+  airportsBtn.addEventListener('click', function() {
+    airportsPanel.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    if (!mapInitialized) {
+      mapInitialized = true;
+      setTimeout(function() {
+        var map = L.map('mapContainer', {
+          scrollWheelZoom: false,
+          zoomControl: true,
+          attributionControl: false
+        });
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+          subdomains: 'abcd',
+          maxZoom: 19
+        }).addTo(map);
+
+        // Locations
+        var hotel = [45.6247, 10.5558];
+        var vrn = [45.3964, 10.8881];
+        var bgy = [45.6739, 9.7042];
+        var mxp = [45.6306, 8.7231];
+        var vce = [45.5053, 12.3519];
+
+        // Detect mobile for shorter labels
+        var isMobile = window.innerWidth < 600;
+        var fs = isMobile ? '10px' : '11px';
+        var pad = isMobile ? '4px 7px' : '5px 10px';
+
+        // Custom icons
+        var hotelIcon = L.divIcon({
+          className: 'map-marker map-marker--hotel',
+          html: '<div style="background:#4A5D4A;color:#fff;font-family:DM Sans,sans-serif;font-size:' + fs + ';font-weight:600;padding:' + pad + ';border-radius:4px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);position:relative;">★ ' + (isMobile ? 'Hotel Fasano' : 'Grand Hotel Fasano') + '<span style="position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #4A5D4A;"></span></div>',
+          iconSize: [null, null],
+          iconAnchor: [isMobile ? 60 : 90, 42]
+        });
+
+        var airportIcon = function(code, anchorX, anchorTop) {
+          return L.divIcon({
+            className: 'map-marker map-marker--airport',
+            html: '<div style="background:#fff;color:#2d2d2d;font-family:DM Sans,sans-serif;font-size:' + fs + ';font-weight:600;padding:' + pad + ';border-radius:4px;white-space:nowrap;border:1.5px solid #ccc;box-shadow:0 2px 6px rgba(0,0,0,0.12);position:relative;">✈ ' + code + '<span style="position:absolute;' + (anchorTop ? 'top' : 'bottom') + ':-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-' + (anchorTop ? 'bottom' : 'top') + ':6px solid #ccc;"></span></div>',
+            iconSize: [null, null],
+            iconAnchor: [anchorX || 35, anchorTop ? -6 : 36]
+          });
+        };
+
+        L.marker(hotel, { icon: hotelIcon }).addTo(map)
+          .bindPopup('<b>Grand Hotel Fasano</b><br>Gardone Riviera');
+        L.marker(vrn, { icon: airportIcon(isMobile ? 'VRN' : 'VRN — Верона') }).addTo(map)
+          .bindPopup('<b>VRN</b> — Верона<br>~30 мин на машине');
+        L.marker(bgy, { icon: airportIcon(isMobile ? 'BGY' : 'BGY — Бергамо', isMobile ? 25 : 100, true) }).addTo(map)
+          .bindPopup('<b>BGY</b> — Бергамо<br>~1.5 ч на машине');
+        L.marker(mxp, { icon: airportIcon(isMobile ? 'MXP' : 'MXP — Милан') }).addTo(map)
+          .bindPopup('<b>MXP</b> — Милан Мальпенса<br>~2 ч на машине');
+        L.marker(vce, { icon: airportIcon(isMobile ? 'VCE' : 'VCE — Венеция') }).addTo(map)
+          .bindPopup('<b>VCE</b> — Венеция Марко Поло<br>~2 ч на машине');
+
+        // Fit to show all markers with padding
+        var bounds = L.latLngBounds([hotel, vrn, bgy, mxp, vce]);
+        map.fitBounds(bounds, { padding: [40, 40] });
+      }, 100);
+    }
+  });
+
+  airportsClose.addEventListener('click', function() {
+    airportsPanel.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  airportsPanel.addEventListener('click', function(e) {
+    if (e.target === airportsPanel) {
+      airportsPanel.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Form pills
+  document.querySelectorAll('.form-pills').forEach(function(group) {
+    var pills = group.querySelectorAll('.form-pill');
+    var groupName = group.dataset.group;
+
+    pills.forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        if (groupName === 'dates') {
+          // Single select for dates
+          pills.forEach(function(p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+        } else {
+          // Toggle for contact method
+          pill.classList.toggle('active');
+        }
+      });
+    });
+  });
+
+  // Form submit
+  var form = document.getElementById('rsvpForm');
+  var thankyou = document.getElementById('thankyou');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Check dates selected
+    var datesGroup = document.querySelector('[data-group="dates"]');
+    var dateSelected = datesGroup.querySelector('.form-pill.active');
+    if (!dateSelected) {
+      datesGroup.style.outline = '2px solid #c55';
+      datesGroup.style.outlineOffset = '4px';
+      setTimeout(function() {
+        datesGroup.style.outline = 'none';
+      }, 2000);
+      return;
+    }
+
+    // Collect form data
+    var inputs = form.querySelectorAll('.form-input');
+    var firstName = inputs[0].value || '—';
+    var lastName = inputs[1].value || '—';
+    var guests = inputs[2].value || '—';
+    var phone = inputs[3].value || '—';
+    var dates = dateSelected.textContent;
+    var contactPills = document.querySelector('[data-group="contact"]');
+    var contactActive = contactPills ? contactPills.querySelectorAll('.form-pill.active') : [];
+    var contactMethods = [];
+    contactActive.forEach(function(p) { contactMethods.push(p.textContent); });
+    var contact = contactMethods.length ? contactMethods.join(', ') : '—';
+
+    // Build Telegram message
+    var text = '\u2709\uFE0F *Новая заявка с сайта*\n\n'
+      + '\u{1F464} *Имя:* ' + firstName + ' ' + lastName + '\n'
+      + '\u{1F465} *Гостей:* ' + guests + '\n'
+      + '\u{1F4C5} *Даты:* ' + dates + '\n'
+      + '\u{1F4DE} *Связь:* ' + contact + '\n'
+      + '\u260E\uFE0F *Телефон:* ' + phone;
+
+    // Send to Telegram
+    var TG_TOKEN = '8522454299:AAEvBIwOOx9sTLLXXgKY9Ku4avne4gs53-Q';
+    var TG_CHAT = '402002562';
+    var submitBtn = form.querySelector('.form-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка...';
+
+    fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: TG_CHAT,
+        text: text,
+        parse_mode: 'Markdown'
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      form.style.display = 'none';
+      thankyou.classList.add('visible');
+    })
+    .catch(function(err) {
+      // Even if Telegram fails, show thank you (data is not critical to block UX)
+      console.error('Telegram send error:', err);
+      form.style.display = 'none';
+      thankyou.classList.add('visible');
+    });
+  });
+
+  // Throwback mosaic & scroll
+  var tbPhotos = [
+    'images/throwback/ADP_1514.jpg','images/throwback/ADP_1909.jpg','images/throwback/ADP_2038.jpg','images/throwback/ADP_2118.jpg',
+    'images/throwback/2P0A0060.jpg','images/throwback/2P0A0078.jpg','images/throwback/2P0A0104.jpg','images/throwback/2P0A0119.jpg',
+    'images/throwback/2P0A0269.jpg','images/throwback/2P0A0389.jpg','images/throwback/2P0A0435.jpg','images/throwback/2P0A0498.jpg',
+    'images/throwback/2P0A0757.jpg','images/throwback/2P0A8724.jpg','images/throwback/2P0A8872.jpg','images/throwback/2P0A8884.jpg',
+    'images/throwback/2P0A9008.jpg','images/throwback/2P0A9055.jpg','images/throwback/2P0A9251.jpg','images/throwback/2P0A9305.jpg',
+    'images/throwback/2P0A9862.jpg','images/throwback/2P0A9903.jpg','images/throwback/2P0A9918.jpg','images/throwback/2P0A9965.jpg',
+    'images/throwback/675A0036.jpg','images/throwback/675A0162.jpg','images/throwback/675A0168.jpg','images/throwback/675A0357.jpg',
+    'images/throwback/675A0544.jpg','images/throwback/675A1038.jpg','images/throwback/675A1395.jpg','images/throwback/675A1552.jpg',
+    'images/throwback/675A1582.jpg','images/throwback/675A1670.jpg','images/throwback/675A1850.jpg','images/throwback/675A1930.jpg',
+    'images/throwback/675A2454.jpg','images/throwback/675A2869.jpg','images/throwback/IMG_4772.jpg'
+  ];
+
+  // Shuffle helper
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+
+  var isMobileView = window.innerWidth < 768;
+
+  if (!isMobileView) {
+    // Desktop mosaic: 12 cells, each shows a photo, cells rotate through remaining photos
+    var mosaic = document.getElementById('throwbackMosaic');
+    var shuffled = shuffle(tbPhotos.slice());
+    var cellCount = 12;
+    var cellPhotos = []; // track which photo index each cell is showing
+    var usedIndices = new Set();
+
+    for (var i = 0; i < cellCount; i++) {
+      var cell = document.createElement('div');
+      cell.className = 'throwback__cell';
+      var img = document.createElement('img');
+      img.src = shuffled[i];
+      img.alt = '\u0421\u0432\u0430\u0434\u044c\u0431\u0430 2016';
+      img.loading = 'lazy';
+      cell.appendChild(img);
+      mosaic.appendChild(cell);
+      cellPhotos.push(i);
+      usedIndices.add(i);
+    }
+
+    // Rotate photos: every 3s, pick a random cell and swap its photo
+    var nextPhotoIdx = cellCount;
+    setInterval(function() {
+      var cellIdx = Math.floor(Math.random() * cellCount);
+      var cell = mosaic.children[cellIdx];
+      var currentImg = cell.querySelector('img:not(.fade-out)');
+      if (!currentImg) currentImg = cell.querySelector('img');
+
+      // Get next photo
+      var newSrc = shuffled[nextPhotoIdx % shuffled.length];
+      nextPhotoIdx++;
+      if (nextPhotoIdx >= shuffled.length) {
+        nextPhotoIdx = 0;
+        shuffle(shuffled);
+      }
+
+      // Create new image underneath, then fade out old
+      var newImg = document.createElement('img');
+      newImg.src = newSrc;
+      newImg.alt = '\u0421\u0432\u0430\u0434\u044c\u0431\u0430 2016';
+      newImg.style.opacity = '0';
+      cell.appendChild(newImg);
+
+      // Force reflow then animate
+      requestAnimationFrame(function() {
+        newImg.style.opacity = '1';
+        if (currentImg) currentImg.classList.add('fade-out');
+      });
+
+      // Clean up old images after transition
+      setTimeout(function() {
+        var imgs = cell.querySelectorAll('img');
+        while (imgs.length > 1) {
+          cell.removeChild(imgs[0]);
+          imgs = cell.querySelectorAll('img');
+        }
+        var remaining = cell.querySelector('img');
+        if (remaining) remaining.classList.remove('fade-out');
+      }, 1400);
+    }, 3000);
+  } else {
+    // Mobile: auto-scrolling strip
+    var track = document.getElementById('throwbackTrack');
+    var mobilePhotos = shuffle(tbPhotos.slice());
+    // Duplicate for seamless loop
+    var allPhotos = mobilePhotos.concat(mobilePhotos);
+    allPhotos.forEach(function(src) {
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = '\u0421\u0432\u0430\u0434\u044c\u0431\u0430 2016';
+      img.loading = 'lazy';
+      track.appendChild(img);
+    });
+  }
+
+  // Smooth scroll for hero arrow
+  var scrollLink = document.querySelector('.hero__scroll');
+  if (scrollLink) {
+    scrollLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('invitation');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>
