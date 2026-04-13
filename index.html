@@ -874,27 +874,26 @@ a {
 /* Mobile scroll strip */
 .throwback__scroll {
   display: none;
-  overflow: hidden;
-  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 0 20px;
 }
 
 .throwback__scroll-track {
   display: flex;
-  gap: 4px;
-  animation: throwback-scroll 60s linear infinite;
+  gap: 8px;
   width: max-content;
 }
 
 .throwback__scroll-track img {
-  height: 220px;
+  height: 240px;
   width: auto;
   display: block;
   flex-shrink: 0;
-}
-
-@keyframes throwback-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  border-radius: 6px;
+  scroll-snap-align: start;
 }
 
 /* ========== 9. RSVP ========== */
@@ -2184,12 +2183,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 1400);
     }, 3000);
   } else {
-    // Mobile: auto-scrolling strip
+    // Mobile: swipeable photo strip
     var track = document.getElementById('throwbackTrack');
     var mobilePhotos = shuffle(tbPhotos.slice());
-    // Duplicate for seamless loop
-    var allPhotos = mobilePhotos.concat(mobilePhotos);
-    allPhotos.forEach(function(src) {
+    mobilePhotos.forEach(function(src) {
       var img = document.createElement('img');
       img.src = src;
       img.alt = '\u0421\u0432\u0430\u0434\u044c\u0431\u0430 2016';
