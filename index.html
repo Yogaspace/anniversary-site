@@ -966,6 +966,59 @@ a {
 .form-input:focus {
   border-color: var(--accent);
 }
+.phone-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.phone-country-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+.phone-country {
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 12px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--text-primary);
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.phone-country:focus + .phone-country-display {
+  border-color: var(--accent);
+}
+.phone-country-display {
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 12px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--text-primary);
+  white-space: nowrap;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.phone-country-display::after {
+  content: '';
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #666;
+  margin-left: 4px;
+}
+.phone-input {
+  flex: 1;
+  min-width: 0;
+}
 
 .form-input::placeholder {
   color: #b0b0b0;
@@ -1559,7 +1612,7 @@ footer a:hover {
     <div class="form-row">
       <label class="form-label">Даты <span class="req">*</span></label>
       <div class="form-pills" data-group="dates">
-        <button type="button" class="form-pill" data-value="24-27">24–27 сентября</button>
+        <button type="button" class="form-pill" data-value="23-27">23–27 сентября</button>
         <button type="button" class="form-pill" data-value="25-27">25–27 сентября</button>
       </div>
     </div>
@@ -1575,7 +1628,176 @@ footer a:hover {
 
     <div class="form-row">
       <label class="form-label">Номер для связи</label>
-      <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__">
+      <div class="phone-wrapper">
+        <div class="phone-country-wrap">
+        <select class="phone-country" id="phoneCountry">
+<option value="+7" data-mask="+7 (___) ___-__-__" data-len="10" selected>🇷🇺 Россия (+7)</option>
+          <option value="+7" data-mask="+7 (___) ___-__-__" data-len="10">🇰🇿 Казахстан (+7)</option>
+          <option value="+61" data-mask="+61 ___-___-___" data-len="9">🇦🇺 Австралия (+61)</option>
+          <option value="+43" data-mask="+43 ___-_______" data-len="10">🇦🇹 Австрия (+43)</option>
+          <option value="+994" data-mask="+994 __-___-__-__" data-len="9">🇦🇿 Азербайджан (+994)</option>
+          <option value="+355" data-mask="+355 __-___-____" data-len="9">🇦🇱 Албания (+355)</option>
+          <option value="+213" data-mask="+213 ___-__-__-__" data-len="9">🇩🇿 Алжир (+213)</option>
+          <option value="+244" data-mask="+244 ___-___-___" data-len="9">🇦🇴 Ангола (+244)</option>
+          <option value="+376" data-mask="+376 ___-___" data-len="6">🇦🇩 Андорра (+376)</option>
+          <option value="+1268" data-mask="+1268 ___-____" data-len="7">🇦🇬 Антигуа и Барбуда (+1268)</option>
+          <option value="+54" data-mask="+54 __-____-____" data-len="10">🇦🇷 Аргентина (+54)</option>
+          <option value="+374" data-mask="+374 __-___-___" data-len="8">🇦🇲 Армения (+374)</option>
+          <option value="+93" data-mask="+93 __-___-____" data-len="9">🇦🇫 Афганистан (+93)</option>
+          <option value="+1242" data-mask="+1242 ___-____" data-len="7">🇧🇸 Багамы (+1242)</option>
+          <option value="+880" data-mask="+880 ____-______" data-len="10">🇧🇩 Бангладеш (+880)</option>
+          <option value="+1246" data-mask="+1246 ___-____" data-len="7">🇧🇧 Барбадос (+1246)</option>
+          <option value="+973" data-mask="+973 ____-____" data-len="8">🇧🇭 Бахрейн (+973)</option>
+          <option value="+375" data-mask="+375 __-___-__-__" data-len="9">🇧🇾 Беларусь (+375)</option>
+          <option value="+501" data-mask="+501 ___-____" data-len="7">🇧🇿 Белиз (+501)</option>
+          <option value="+32" data-mask="+32 ___-__-__-__" data-len="9">🇧🇪 Бельгия (+32)</option>
+          <option value="+229" data-mask="+229 __-__-____" data-len="8">🇧🇯 Бенин (+229)</option>
+          <option value="+359" data-mask="+359 ___-___-___" data-len="9">🇧🇬 Болгария (+359)</option>
+          <option value="+591" data-mask="+591 _-___-____" data-len="8">🇧🇴 Боливия (+591)</option>
+          <option value="+387" data-mask="+387 __-___-___" data-len="8">🇧🇦 Босния и Герцеговина (+387)</option>
+          <option value="+267" data-mask="+267 __-___-___" data-len="8">🇧🇼 Ботсвана (+267)</option>
+          <option value="+55" data-mask="+55 __-_____-____" data-len="11">🇧🇷 Бразилия (+55)</option>
+          <option value="+673" data-mask="+673 ___-____" data-len="7">🇧🇳 Бруней (+673)</option>
+          <option value="+226" data-mask="+226 __-__-____" data-len="8">🇧🇫 Буркина-Фасо (+226)</option>
+          <option value="+257" data-mask="+257 __-__-____" data-len="8">🇧🇮 Бурунди (+257)</option>
+          <option value="+975" data-mask="+975 __-___-___" data-len="8">🇧🇹 Бутан (+975)</option>
+          <option value="+44" data-mask="+44 ____-______" data-len="10">🇬🇧 Великобритания (+44)</option>
+          <option value="+36" data-mask="+36 __-___-____" data-len="9">🇭🇺 Венгрия (+36)</option>
+          <option value="+58" data-mask="+58 ___-___-____" data-len="10">🇻🇪 Венесуэла (+58)</option>
+          <option value="+84" data-mask="+84 ___-___-__-__" data-len="10">🇻🇳 Вьетнам (+84)</option>
+          <option value="+241" data-mask="+241 _-__-__-__" data-len="7">🇬🇦 Габон (+241)</option>
+          <option value="+509" data-mask="+509 ____-____" data-len="8">🇭🇹 Гаити (+509)</option>
+          <option value="+592" data-mask="+592 ___-____" data-len="7">🇬🇾 Гайана (+592)</option>
+          <option value="+220" data-mask="+220 ___-____" data-len="7">🇬🇲 Гамбия (+220)</option>
+          <option value="+233" data-mask="+233 __-___-____" data-len="9">🇬🇭 Гана (+233)</option>
+          <option value="+502" data-mask="+502 ____-____" data-len="8">🇬🇹 Гватемала (+502)</option>
+          <option value="+224" data-mask="+224 ___-__-__-__" data-len="9">🇬🇳 Гвинея (+224)</option>
+          <option value="+49" data-mask="+49 ___-_______" data-len="10">🇩🇪 Германия (+49)</option>
+          <option value="+504" data-mask="+504 ____-____" data-len="8">🇭🇳 Гондурас (+504)</option>
+          <option value="+852" data-mask="+852 ____-____" data-len="8">🇭🇰 Гонконг (+852)</option>
+          <option value="+30" data-mask="+30 ___-___-____" data-len="10">🇬🇷 Греция (+30)</option>
+          <option value="+995" data-mask="+995 ___-__-__-__" data-len="9">🇬🇪 Грузия (+995)</option>
+          <option value="+45" data-mask="+45 __-__-__-__" data-len="8">🇩🇰 Дания (+45)</option>
+          <option value="+253" data-mask="+253 __-__-__-__" data-len="8">🇩🇯 Джибути (+253)</option>
+          <option value="+1809" data-mask="+1809 ___-____" data-len="7">🇩🇴 Доминикана (+1809)</option>
+          <option value="+20" data-mask="+20 ___-___-____" data-len="10">🇪🇬 Египет (+20)</option>
+          <option value="+260" data-mask="+260 __-___-____" data-len="9">🇿🇲 Замбия (+260)</option>
+          <option value="+263" data-mask="+263 __-___-____" data-len="9">🇿🇼 Зимбабве (+263)</option>
+          <option value="+972" data-mask="+972 __-___-____" data-len="9">🇮🇱 Израиль (+972)</option>
+          <option value="+91" data-mask="+91 _____-_____" data-len="10">🇮🇳 Индия (+91)</option>
+          <option value="+62" data-mask="+62 ___-___-____" data-len="10">🇮🇩 Индонезия (+62)</option>
+          <option value="+962" data-mask="+962 _-____-____" data-len="9">🇯🇴 Иордания (+962)</option>
+          <option value="+964" data-mask="+964 ___-___-____" data-len="10">🇮🇶 Ирак (+964)</option>
+          <option value="+98" data-mask="+98 ___-___-____" data-len="10">🇮🇷 Иран (+98)</option>
+          <option value="+353" data-mask="+353 __-___-____" data-len="9">🇮🇪 Ирландия (+353)</option>
+          <option value="+354" data-mask="+354 ___-____" data-len="7">🇮🇸 Исландия (+354)</option>
+          <option value="+34" data-mask="+34 ___-___-___" data-len="9">🇪🇸 Испания (+34)</option>
+          <option value="+39" data-mask="+39 ___-___-____" data-len="10">🇮🇹 Италия (+39)</option>
+          <option value="+967" data-mask="+967 ___-___-___" data-len="9">🇾🇪 Йемен (+967)</option>
+          <option value="+850" data-mask="+850 ___-___-____" data-len="10">🇰🇵 КНДР (+850)</option>
+          <option value="+238" data-mask="+238 ___-__-__" data-len="7">🇨🇻 Кабо-Верде (+238)</option>
+          <option value="+855" data-mask="+855 __-___-___" data-len="8">🇰🇭 Камбоджа (+855)</option>
+          <option value="+237" data-mask="+237 ____-____" data-len="8">🇨🇲 Камерун (+237)</option>
+          <option value="+1" data-mask="+1 (___) ___-____" data-len="10">🇨🇦 Канада (+1)</option>
+          <option value="+974" data-mask="+974 ____-____" data-len="8">🇶🇦 Катар (+974)</option>
+          <option value="+254" data-mask="+254 ___-______" data-len="9">🇰🇪 Кения (+254)</option>
+          <option value="+357" data-mask="+357 __-___-___" data-len="8">🇨🇾 Кипр (+357)</option>
+          <option value="+86" data-mask="+86 ___-____-____" data-len="11">🇨🇳 Китай (+86)</option>
+          <option value="+57" data-mask="+57 ___-___-____" data-len="10">🇨🇴 Колумбия (+57)</option>
+          <option value="+269" data-mask="+269 ___-__-__" data-len="7">🇰🇲 Коморы (+269)</option>
+          <option value="+242" data-mask="+242 __-___-____" data-len="9">🇨🇬 Конго (+242)</option>
+          <option value="+506" data-mask="+506 ____-____" data-len="8">🇨🇷 Коста-Рика (+506)</option>
+          <option value="+53" data-mask="+53 _-___-____" data-len="8">🇨🇺 Куба (+53)</option>
+          <option value="+965" data-mask="+965 ____-____" data-len="8">🇰🇼 Кувейт (+965)</option>
+          <option value="+996" data-mask="+996 ___-__-__-__" data-len="9">🇰🇬 Кыргызстан (+996)</option>
+          <option value="+856" data-mask="+856 __-___-___" data-len="8">🇱🇦 Лаос (+856)</option>
+          <option value="+371" data-mask="+371 __-___-___" data-len="8">🇱🇻 Латвия (+371)</option>
+          <option value="+961" data-mask="+961 __-___-___" data-len="8">🇱🇧 Ливан (+961)</option>
+          <option value="+218" data-mask="+218 __-___-____" data-len="9">🇱🇾 Ливия (+218)</option>
+          <option value="+370" data-mask="+370 ___-__-___" data-len="8">🇱🇹 Литва (+370)</option>
+          <option value="+423" data-mask="+423 ___-__-__" data-len="7">🇱🇮 Лихтенштейн (+423)</option>
+          <option value="+352" data-mask="+352 ___-___-___" data-len="9">🇱🇺 Люксембург (+352)</option>
+          <option value="+230" data-mask="+230 ____-____" data-len="8">🇲🇺 Маврикий (+230)</option>
+          <option value="+222" data-mask="+222 __-__-____" data-len="8">🇲🇷 Мавритания (+222)</option>
+          <option value="+261" data-mask="+261 __-__-___-__" data-len="9">🇲🇬 Мадагаскар (+261)</option>
+          <option value="+853" data-mask="+853 ____-____" data-len="8">🇲🇴 Макао (+853)</option>
+          <option value="+60" data-mask="+60 __-___-____" data-len="9">🇲🇾 Малайзия (+60)</option>
+          <option value="+223" data-mask="+223 __-__-____" data-len="8">🇲🇱 Мали (+223)</option>
+          <option value="+960" data-mask="+960 ___-____" data-len="7">🇲🇻 Мальдивы (+960)</option>
+          <option value="+356" data-mask="+356 ____-____" data-len="8">🇲🇹 Мальта (+356)</option>
+          <option value="+212" data-mask="+212 __-____-___" data-len="9">🇲🇦 Марокко (+212)</option>
+          <option value="+52" data-mask="+52 ___-___-____" data-len="10">🇲🇽 Мексика (+52)</option>
+          <option value="+258" data-mask="+258 __-___-____" data-len="9">🇲🇿 Мозамбик (+258)</option>
+          <option value="+373" data-mask="+373 ____-____" data-len="8">🇲🇩 Молдова (+373)</option>
+          <option value="+377" data-mask="+377 __-___-___" data-len="8">🇲🇨 Монако (+377)</option>
+          <option value="+976" data-mask="+976 ____-____" data-len="8">🇲🇳 Монголия (+976)</option>
+          <option value="+95" data-mask="+95 ___-___-___" data-len="9">🇲🇲 Мьянма (+95)</option>
+          <option value="+264" data-mask="+264 __-___-____" data-len="9">🇳🇦 Намибия (+264)</option>
+          <option value="+977" data-mask="+977 ___-___-____" data-len="10">🇳🇵 Непал (+977)</option>
+          <option value="+227" data-mask="+227 __-__-____" data-len="8">🇳🇪 Нигер (+227)</option>
+          <option value="+234" data-mask="+234 ___-___-____" data-len="10">🇳🇬 Нигерия (+234)</option>
+          <option value="+31" data-mask="+31 _-________" data-len="9">🇳🇱 Нидерланды (+31)</option>
+          <option value="+505" data-mask="+505 ____-____" data-len="8">🇳🇮 Никарагуа (+505)</option>
+          <option value="+64" data-mask="+64 __-___-____" data-len="9">🇳🇿 Новая Зеландия (+64)</option>
+          <option value="+47" data-mask="+47 ___-__-___" data-len="8">🇳🇴 Норвегия (+47)</option>
+          <option value="+971" data-mask="+971 __-___-____" data-len="9">🇦🇪 ОАЭ (+971)</option>
+          <option value="+968" data-mask="+968 ____-____" data-len="8">🇴🇲 Оман (+968)</option>
+          <option value="+92" data-mask="+92 ___-_______" data-len="10">🇵🇰 Пакистан (+92)</option>
+          <option value="+507" data-mask="+507 ____-____" data-len="8">🇵🇦 Панама (+507)</option>
+          <option value="+595" data-mask="+595 ___-______" data-len="9">🇵🇾 Парагвай (+595)</option>
+          <option value="+51" data-mask="+51 ___-___-___" data-len="9">🇵🇪 Перу (+51)</option>
+          <option value="+48" data-mask="+48 ___-___-___" data-len="9">🇵🇱 Польша (+48)</option>
+          <option value="+351" data-mask="+351 ___-___-___" data-len="9">🇵🇹 Португалия (+351)</option>
+          <option value="+250" data-mask="+250 ___-___-___" data-len="9">🇷🇼 Руанда (+250)</option>
+          <option value="+40" data-mask="+40 ___-___-___" data-len="9">🇷🇴 Румыния (+40)</option>
+          <option value="+1" data-mask="+1 (___) ___-____" data-len="10">🇺🇸 США (+1)</option>
+          <option value="+503" data-mask="+503 ____-____" data-len="8">🇸🇻 Сальвадор (+503)</option>
+          <option value="+966" data-mask="+966 __-___-____" data-len="9">🇸🇦 Саудовская Аравия (+966)</option>
+          <option value="+389" data-mask="+389 __-___-___" data-len="8">🇲🇰 Северная Македония (+389)</option>
+          <option value="+221" data-mask="+221 __-___-____" data-len="9">🇸🇳 Сенегал (+221)</option>
+          <option value="+381" data-mask="+381 __-___-____" data-len="9">🇷🇸 Сербия (+381)</option>
+          <option value="+65" data-mask="+65 ____-____" data-len="8">🇸🇬 Сингапур (+65)</option>
+          <option value="+421" data-mask="+421 ___-___-___" data-len="9">🇸🇰 Словакия (+421)</option>
+          <option value="+386" data-mask="+386 __-___-___" data-len="8">🇸🇮 Словения (+386)</option>
+          <option value="+249" data-mask="+249 __-___-____" data-len="9">🇸🇩 Судан (+249)</option>
+          <option value="+992" data-mask="+992 __-___-____" data-len="9">🇹🇯 Таджикистан (+992)</option>
+          <option value="+66" data-mask="+66 __-___-____" data-len="9">🇹🇭 Таиланд (+66)</option>
+          <option value="+886" data-mask="+886 ___-___-___" data-len="9">🇹🇼 Тайвань (+886)</option>
+          <option value="+255" data-mask="+255 ___-___-___" data-len="9">🇹🇿 Танзания (+255)</option>
+          <option value="+216" data-mask="+216 __-___-___" data-len="8">🇹🇳 Тунис (+216)</option>
+          <option value="+993" data-mask="+993 __-__-__-__" data-len="8">🇹🇲 Туркменистан (+993)</option>
+          <option value="+90" data-mask="+90 ___-___-____" data-len="10">🇹🇷 Турция (+90)</option>
+          <option value="+256" data-mask="+256 ___-______" data-len="9">🇺🇬 Уганда (+256)</option>
+          <option value="+998" data-mask="+998 __-___-____" data-len="9">🇺🇿 Узбекистан (+998)</option>
+          <option value="+380" data-mask="+380 __-___-__-__" data-len="9">🇺🇦 Украина (+380)</option>
+          <option value="+598" data-mask="+598 _-___-__-__" data-len="8">🇺🇾 Уругвай (+598)</option>
+          <option value="+679" data-mask="+679 ___-____" data-len="7">🇫🇯 Фиджи (+679)</option>
+          <option value="+63" data-mask="+63 ___-___-____" data-len="10">🇵🇭 Филиппины (+63)</option>
+          <option value="+358" data-mask="+358 __-___-__-__" data-len="9">🇫🇮 Финляндия (+358)</option>
+          <option value="+33" data-mask="+33 _-__-__-__-__" data-len="9">🇫🇷 Франция (+33)</option>
+          <option value="+385" data-mask="+385 __-___-____" data-len="9">🇭🇷 Хорватия (+385)</option>
+          <option value="+236" data-mask="+236 __-__-____" data-len="8">🇨🇫 ЦАР (+236)</option>
+          <option value="+235" data-mask="+235 __-__-__-__" data-len="8">🇹🇩 Чад (+235)</option>
+          <option value="+382" data-mask="+382 __-___-___" data-len="8">🇲🇪 Черногория (+382)</option>
+          <option value="+420" data-mask="+420 ___-___-___" data-len="9">🇨🇿 Чехия (+420)</option>
+          <option value="+56" data-mask="+56 _-____-____" data-len="9">🇨🇱 Чили (+56)</option>
+          <option value="+41" data-mask="+41 __-___-__-__" data-len="9">🇨🇭 Швейцария (+41)</option>
+          <option value="+46" data-mask="+46 __-___-__-__" data-len="9">🇸🇪 Швеция (+46)</option>
+          <option value="+94" data-mask="+94 __-___-____" data-len="9">🇱🇰 Шри-Ланка (+94)</option>
+          <option value="+240" data-mask="+240 ___-___-___" data-len="9">🇬🇶 Экв. Гвинея (+240)</option>
+          <option value="+593" data-mask="+593 __-___-____" data-len="9">🇪🇨 Эквадор (+593)</option>
+          <option value="+291" data-mask="+291 _-___-___" data-len="7">🇪🇷 Эритрея (+291)</option>
+          <option value="+372" data-mask="+372 ____-____" data-len="8">🇪🇪 Эстония (+372)</option>
+          <option value="+251" data-mask="+251 __-___-____" data-len="9">🇪🇹 Эфиопия (+251)</option>
+          <option value="+27" data-mask="+27 __-___-____" data-len="9">🇿🇦 ЮАР (+27)</option>
+          <option value="+82" data-mask="+82 __-____-____" data-len="10">🇰🇷 Южная Корея (+82)</option>
+          <option value="+1876" data-mask="+1876 ___-____" data-len="7">🇯🇲 Ямайка (+1876)</option>
+          <option value="+81" data-mask="+81 __-____-____" data-len="10">🇯🇵 Япония (+81)</option>
+        </select>
+        <span class="phone-country-display" id="phoneCountryDisplay">🇷🇺 +7</span>
+        </div>
+        <input type="tel" class="form-input phone-input" id="phoneInput" placeholder="(___) ___-__-__">
+      </div>
     </div>
 
     <button type="submit" class="form-submit">Отправить</button>
@@ -1751,7 +1973,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var firstName = inputs[0].value || '—';
     var lastName = inputs[1].value || '—';
     var guests = inputs[2].value || '—';
-    var phone = inputs[3].value || '—';
+    var countrySelect = document.getElementById('phoneCountry');
+    var phoneRaw = document.getElementById('phoneInput').value || '';
+    var phone = phoneRaw ? countrySelect.value + ' ' + phoneRaw : '—';
     var dates = dateSelected.textContent;
     var contactPills = document.querySelector('[data-group="contact"]');
     var contactActive = contactPills ? contactPills.querySelectorAll('.form-pill.active') : [];
@@ -1795,6 +2019,84 @@ document.addEventListener('DOMContentLoaded', function() {
       thankyou.classList.add('visible');
     });
   });
+
+  // Phone mask
+  (function() {
+    var countrySelect = document.getElementById('phoneCountry');
+    var phoneInput = document.getElementById('phoneInput');
+
+    function getMask() {
+      var opt = countrySelect.options[countrySelect.selectedIndex];
+      var full = opt.getAttribute('data-mask') || '';
+      var code = countrySelect.value;
+      return full.slice(code.length + 1);
+    }
+
+    function applyMask(value, mask) {
+      var digits = value.replace(/\D/g, '');
+      var result = '';
+      var di = 0;
+      for (var i = 0; i < mask.length && di < digits.length; i++) {
+        if (mask[i] === '_') {
+          result += digits[di];
+          di++;
+        } else {
+          result += mask[i];
+        }
+      }
+      return result;
+    }
+
+    function getPlaceholder() {
+      return getMask();
+    }
+
+    var displayEl = document.getElementById('phoneCountryDisplay');
+
+    function updateDisplay() {
+      var opt = countrySelect.options[countrySelect.selectedIndex];
+      var text = opt.textContent;
+      // Extract flag and code: "🇷🇺 Россия (+7)" -> "🇷🇺 +7"
+      var match = text.match(/^(.{1,4})\s.*?(\+\d+)/);
+      if (match) {
+        displayEl.textContent = match[1] + ' ' + match[2];
+      } else {
+        displayEl.textContent = countrySelect.value;
+      }
+    }
+
+    function updatePlaceholder() {
+      phoneInput.placeholder = getPlaceholder();
+      updateDisplay();
+      // Re-apply mask to existing value
+      if (phoneInput.value) {
+        var digits = phoneInput.value.replace(/\D/g, '');
+        phoneInput.value = applyMask(digits, getMask());
+      }
+    }
+
+    countrySelect.addEventListener('change', updatePlaceholder);
+
+    phoneInput.addEventListener('input', function(e) {
+      var mask = getMask();
+      var digits = phoneInput.value.replace(/\D/g, '');
+      var maxDigits = (mask.match(/_/g) || []).length;
+      digits = digits.slice(0, maxDigits);
+      phoneInput.value = applyMask(digits, mask);
+    });
+
+    phoneInput.addEventListener('keydown', function(e) {
+      // Allow backspace to remove properly
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        var digits = phoneInput.value.replace(/\D/g, '');
+        digits = digits.slice(0, -1);
+        phoneInput.value = applyMask(digits, getMask());
+      }
+    });
+
+    updatePlaceholder();
+  })();
 
   // Throwback mosaic & scroll
   var tbPhotos = [
@@ -1892,7 +2194,6 @@ document.addEventListener('DOMContentLoaded', function() {
       var img = document.createElement('img');
       img.src = src;
       img.alt = '\u0421\u0432\u0430\u0434\u044c\u0431\u0430 2016';
-      img.loading = 'lazy';
       track.appendChild(img);
     });
   }
